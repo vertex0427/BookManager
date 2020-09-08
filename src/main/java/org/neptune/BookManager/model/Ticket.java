@@ -6,8 +6,8 @@ public class Ticket {
 
     private int id;
     private int userId;
-    //ticket为用户权限
-    private String ticket;
+    //ticketInfo为一串复杂字符串，交由UuidUtils生成
+    private String ticketInfo;
     //expiredTime为过期时间
     private Date expiredTime;
 
@@ -27,12 +27,12 @@ public class Ticket {
         this.userId = userId;
     }
 
-    public String getTicket() {
-        return ticket;
+    public String getTicketInfo() {
+        return ticketInfo;
     }
 
-    public void setTicket(String ticket) {
-        this.ticket = ticket;
+    public void setTicketInfo(String ticketInfo) {
+        this.ticketInfo = ticketInfo;
     }
 
     public Date getExpiredTime() {

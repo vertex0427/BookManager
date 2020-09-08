@@ -9,7 +9,7 @@ public class TicketUtils {
     public static Ticket next(int uid){
 
         Ticket ticket = new Ticket();
-        ticket.setTicket(UuidUtils.next());
+        ticket.setTicketInfo(UuidUtils.next());
         ticket.setUserId(uid);
         //设置t票过期时间
         DateTime expiredTime = new DateTime();

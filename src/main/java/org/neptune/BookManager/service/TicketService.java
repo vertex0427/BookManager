@@ -11,23 +11,23 @@ public class TicketService {
     @Autowired
     private TicketDAO ticketDAO;
 
-    public void addTicket(Ticket t) {
-        ticketDAO.addTicket(t);
+    public void addTicket(Ticket ticket) {
+        ticketDAO.addTicket(ticket);
     }
 
     public Ticket getTicket(int uid) {
         return ticketDAO.selectByUserId(uid);
     }
 
-    public Ticket getTicket(String t) {
-        return ticketDAO.selectByTicket(t);
+    public Ticket getTicket(String ticketInfo) {
+        return ticketDAO.selectByTicket(ticketInfo);
     }
 
     public void deleteTicket(int tid) {
         ticketDAO.deleteTicketById(tid);
     }
 
-    public void deleteTicket(String t) {
-        ticketDAO.deleteTicket(t);
+    public void deleteTicket(String ticketInfo) {
+        ticketDAO.deleteTicket(ticketInfo);
     }
 }

@@ -7,22 +7,22 @@ import org.neptune.BookManager.model.Ticket;
 public interface TicketDAO {
 
     String tableName = " ticket ";
-    String insertField = " user_id, ticket, expired_time ";
+    String insertField = " user_id, ticket_info, expired_time ";
     String selectField = " id, " + insertField;
 
     @Insert({"insert into", tableName, "(", insertField,
-        ") values (#{userId}, #{ticket}, #{expired_time})"})
+        ") values (#{userId}, #{ticketInfo}, #{expiredTime})"})
     int addTicket(Ticket ticket);
 
     @Select({"select", selectField, "from", tableName, "where user_id=#{uid}"})
     Ticket selectByUserId(int uid);
 
-    @Select({"select", selectField, "from", tableName, "where ticket=#{t}"})
-    Ticket selectByTicket(String t);
+    @Select({"select", selectField, "from", tableName, "where ticket_info=#{ticketInfo}"})
+    Ticket selectByTicket(String ticketInfo);
 
     @Delete({"delete from", tableName, "where id=#{tid}"})
     void deleteTicketById(int tid);
 
-    @Delete({"delete from", tableName, "where ticket=#{t}"})
-    void deleteTicket(String t);
+    @Delete({"delete from", tableName, "where ticket_info=#{ticketInfo}"})
+    void deleteTicket(String ticketInfo);
 }
