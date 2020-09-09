@@ -57,7 +57,7 @@ public class BookController {
     //书本恢复正常状态页面
     @RequestMapping(path = {"/books/{bookId:[0-9]+}/recover"}, method = {RequestMethod.GET})
     public String recoverBook(@PathVariable("bookId") int bookId) {
-        
+
         bookService.recoverBook(bookId);
         return "redirect:/index";
     }
