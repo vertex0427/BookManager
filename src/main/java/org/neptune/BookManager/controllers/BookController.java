@@ -1,7 +1,9 @@
 package org.neptune.BookManager.controllers;
 
 import org.neptune.BookManager.model.Book;
+import org.neptune.BookManager.model.User;
 import org.neptune.BookManager.service.BookService;
+import org.neptune.BookManager.service.HostHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,9 +19,17 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
+    @Autowired
+    private HostHolder hostHolder;
+
     //主页，显示所有书本
     @RequestMapping(path = {"/index"}, method = {RequestMethod.GET})
     public String bookList(Model model) {
+        //检查是否登录
+        User host = hostHolder.getUser();
+        if(host != null) {
+            model.addAttribute("host", host);
+        }
         loadAllBooksView(model);
         return "book/books";
     }
