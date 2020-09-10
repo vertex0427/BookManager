@@ -57,6 +57,7 @@ public class LoginController {
     }
 
     //完成注册
+    @RequestMapping(path = {"users/register"}, method = {RequestMethod.POST})
     public String doRegister(
             Model model,
             HttpServletResponse response,
